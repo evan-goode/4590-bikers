@@ -1,0 +1,7 @@
+- Audio preprocessing pipeline
+	- trim recording down to just the signal
+	- convert to format GCC-PHAT can understand
+- Find a GCC-PHAT library to use
+- Test GCC-PHAT with 2 mics
+- Figure out how to go from cross-correlation to source position/direction
+	- refer to https://pyroomacoustics.readthedocs.io/en/pypi-release/pyroomacoustics.doa.html
