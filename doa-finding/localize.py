@@ -8,6 +8,8 @@ import pyroomacoustics as pra
 import numpy as np
 import scipy.io.wavfile
 
+import IPython
+
 fs, raw_data = scipy.io.wavfile.read(sys.argv[1])
 print(f"Detected sampling frequency: {fs}Hz")
 print(f"Found {raw_data.shape[1]} channels.")
@@ -23,6 +25,7 @@ X = np.array([pra.stft(channel, nfft, nfft // 2, transform=np.fft.rfft).T for ch
 
 doa = pra.doa.algorithms["MUSIC"](mic_positions, fs, nfft, c=c, num_src=1, max_four=4)
 doa.locate_sources(X, freq_range=freq_range)
+IPython.embed()
 
 spatial_resp = doa.grid.values
 phi_plt = doa.grid.azimuth

@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
+import os
 import sys
+
 from sympy import *
 import sympy as sympy
 import matplotlib.pyplot as plt
@@ -8,7 +10,9 @@ import scipy.io.wavfile
 import pyaudio
 import numpy as np
 
-L = 11.6
+os.chdir(os.path.dirname(__file__))
+
+L = 11.5
 ax = 0
 ay = 6.43
 bx = -L / 2
