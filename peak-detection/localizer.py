@@ -28,7 +28,7 @@ def stream_mode():
     FORMAT = pyaudio.paInt16
     CHANNELS = 3
     RATE = 44100
-    RECORD_SECONDS = 5
+    RECORD_SECONDS = 10
     p = pyaudio.PyAudio()
 
     stream = p.open(format=FORMAT,
@@ -81,10 +81,10 @@ def get_peak_time(raw_data, channel, fs, threshold):
     return t
 
 def input_mode():
-    fs, raw_data = scipy.io.wavfile.read("./test/" + sys.argv[1] + ".wav")
+    fs, raw_data = scipy.io.wavfile.read("./final_test/" + sys.argv[1] + ".wav")
     print(f"Detected sampling frequency: {fs}Hz")
     print(f"Found {raw_data.shape[1]} channels.")
-    THRESHOLD = 0.6
+    THRESHOLD = 0.75
     ta = get_peak_time(raw_data, 0, fs, THRESHOLD)
     tb = get_peak_time(raw_data, 1, fs, THRESHOLD)
     tc = get_peak_time(raw_data, 2, fs, THRESHOLD)
