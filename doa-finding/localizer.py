@@ -9,8 +9,6 @@ import pyroomacoustics as pra
 import numpy as np
 import scipy.io.wavfile
 
-import IPython
-
 fs, raw_data = scipy.io.wavfile.read(sys.argv[1])
 print(f"Detected sampling frequency: {fs}Hz")
 print(f"Found {raw_data.shape[1]} channels.")

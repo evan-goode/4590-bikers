@@ -10,8 +10,6 @@ import scipy.io.wavfile
 import pyaudio
 import numpy as np
 
-os.chdir(os.path.dirname(__file__))
-
 L = 11.5
 ax = 0
 ay = 6.43
@@ -81,7 +79,7 @@ def get_peak_time(raw_data, channel, fs, threshold):
     return t
 
 def input_mode():
-    fs, raw_data = scipy.io.wavfile.read("./final_test/" + sys.argv[1] + ".wav")
+    fs, raw_data = scipy.io.wavfile.read(sys.argv[1])
     print(f"Detected sampling frequency: {fs}Hz")
     print(f"Found {raw_data.shape[1]} channels.")
     THRESHOLD = 0.75
